@@ -6,10 +6,10 @@ const getCatalogues = async () => {
 
     const localData = localStorage.getItem('catalogues')
     if (localData) {
-      console.log('local catalogues')
+    //   console.log('local catalogues')
       return JSON.parse(localData)
     }
-    console.log('not local catalogues')
+    // console.log('not local catalogues')
     const { access_token } = await authorize()
 
     const response = await fetch(url, {

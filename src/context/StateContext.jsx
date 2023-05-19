@@ -19,7 +19,7 @@ export const StateContext = ({ children }) => {
 
         const getData = async () => {
             const data = await getVacancies()
-            console.log('data fetcheddd')
+            // console.log('data fetched :', data)
             const catalogues = await getCatalogues()
             setCatalogues(catalogues)
             setVacancyList(data?.objects)

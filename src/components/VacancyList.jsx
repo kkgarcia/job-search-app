@@ -30,8 +30,8 @@ function PaginatedItems({ itemsPerPage, onlyStarred }) {
     const { vacancyList, starredVacanciesID } = useStateContext()
     
     let list = vacancyList ? vacancyList : []
-    
-    if (onlyStarred) {
+    console.log('list:  ', list)
+    if (onlyStarred && vacancyList) {
       const temp = vacancyList.filter(item => starredVacanciesID.includes(item.id))
       if (temp) list = temp
     }

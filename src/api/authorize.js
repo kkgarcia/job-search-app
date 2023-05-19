@@ -3,11 +3,11 @@ const authURL = 'https://startup-summer-2023-proxy.onrender.com/2.0/oauth2/passw
 const authorize = async () => {
     const localData = localStorage.getItem('data')
     if (localData) {
-      console.log('local token')
+      // console.log('local token')
       return JSON.parse(localData)
     }
 
-    console.log('not local token')
+    // console.log('not local token')
     const response = await fetch(authURL, { headers: {
       "x-secret-key":"GEU4nvd3rej*jeh.eqp"
     } })

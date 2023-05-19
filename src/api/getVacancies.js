@@ -6,7 +6,7 @@ const vacURL = 'https://startup-summer-2023-proxy.onrender.com/2.0/vacancies'
 
 const getVacancies = async () => {
     const { access_token } = await authorize()
-
+    console.log('fetch vacancies.....')
     const res = await fetch(vacURL, {
       headers: {
         "x-secret-key":"GEU4nvd3rej*jeh.eqp",

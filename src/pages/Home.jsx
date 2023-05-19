@@ -16,12 +16,12 @@ const Home = () => {
     const [isFilterOpened, setIsFilterOpened] = useState(false)
     const { setVacancyList, catalogues } = useStateContext()
 
-    const catalogues_data = catalogues.map(cat => {
+    const catalogues_data = catalogues ? catalogues.map(cat => {
         return {
             value: cat.key,
             label: cat.title_trimmed
         }
-    })
+    }) : []
     
     const params = {
         keyword: searchInputValue,
@@ -31,13 +31,15 @@ const Home = () => {
     }
     
     
-    
     useEffect(() => {
         
         if (searchMode) {
             const fetchdata = async () => {
                 const res = await searchVacancy(params)
-                console.log(res)
+                if (res?.total === 0) {
+                    console.log('nothing found')
+                    return
+                }  
                 setVacancyList(res.objects)
             }
             // console.log('fetching')

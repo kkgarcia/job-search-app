@@ -18,11 +18,21 @@ export const StateContext = ({ children }) => {
         }
 
         const getData = async () => {
-            const data = await getVacancies()
-            // console.log('data fetched :', data)
-            const catalogues = await getCatalogues()
-            setCatalogues(catalogues)
-            setVacancyList(data?.objects)
+            try {
+                const data = await getVacancies()
+                // console.log('fetched data :', data)
+                const catalogues = await getCatalogues()
+
+                if (!Array.isArray(catalogues) && !Array.isArray(data)) {
+                    throw catalogues
+                }
+
+                setCatalogues(catalogues)
+                setVacancyList(data?.objects)
+                
+            } catch (error) {
+                console.log('Error: ' + error?.error?.message || error)
+            }
         }
         getData()
     },[])

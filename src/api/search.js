@@ -8,7 +8,7 @@ export const searchVacancy = async (params) => {
     
     const url = `https://startup-summer-2023-proxy.onrender.com/2.0/vacancies/?published=1&${keyword ? 'keyword=' + keyword + '&' : ''}${payment_from ? 'payment_from=' + payment_from + '&' : ''}${payment_to ? 'payment_to=' + payment_to + '&' : ''}${catalogues ? 'catalogues=' + catalogues: ''}`
 
-    console.log(url)
+    // console.log(url)
     const res = await fetch(url, {
       headers: {
         "x-secret-key":"GEU4nvd3rej*jeh.eqp",
